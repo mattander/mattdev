@@ -1,0 +1,243 @@
+/*
+Theme Name: mattDev
+Theme URI: mattDev.ca
+Author: Matt Anderson
+Author URI: mattDev.ca
+Description: The custom theme for mattDev.ca
+Version: 0.1
+License: MIT
+License URI:
+Text Domain: mattDev.ca
+*/
+
+@import 'variables';
+@import 'mixins';
+
+body {
+  background-color: $colour-canvas-default;
+  @include typography_stack;
+}
+
+/* Navigation Module */
+
+#mainNav {
+  box-shadow: 0 3px 5px $colour-box-shadow;
+  background-color: $colour-navbar-background-dark;
+
+  .nav-menu {
+    border: 1px solid $colour-text-light-1;
+    border-radius: 3.4px;
+    padding: .25rem .5rem;
+    font-weight: 400;
+    color: $colour-text-light-1;
+    background-color: #3e3e3e;
+  }
+
+  .navbar-nav {
+    margin-top: 0;
+  }
+
+  .navbar-brand {
+
+    img {
+      width: 150px;
+      height: auto;
+      margin: .625rem 0;
+
+      @include breakpoint(sm) {
+        margin: 1.25rem 1rem 1.25rem 0;
+        width: 185px;
+      }
+    }
+
+    @include breakpoint(lg) {
+      // margin-left: 4rem;
+    }
+  }
+
+  .navbar-toggler-icon {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-items: center;
+    padding: 8px;
+    border: solid 1px $colour-text-light-1;
+  }
+
+  a {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $colour-text-light-1;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Homepage Header Module */
+
+.jumbotron {
+  background: $linear-gradient-light, url("../images/home-banner-background-2.png") no-repeat center 50%;
+  background-size: cover;
+  color: $colour-text-dark-3;
+  border-radius: 0;
+  padding: 2rem 1rem 0 1rem;
+
+  .jumbotron-image {
+    width: 100%;
+    margin: 2rem 0 0;
+
+    @include breakpoint(sm) {
+      width: 76%;
+      margin: 2rem 12%;
+    }
+
+    @include breakpoint(md) {
+      width: 100%;
+    }
+  }
+
+  .jumbotron__container {
+    padding: 4rem 2rem 0 2rem;
+
+    h1 {
+      font-family: "Lato", Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+
+      @include breakpoint(xs) {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  // .jumbotron__heading {
+  //   @include breakpoint(md) {
+  //     width: 550px;
+  //   }
+  // }
+}
+
+/* Service Cards Module */
+
+.services {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 36px;
+
+  .card {
+    flex: 1 0 100%;
+    margin: .85rem;
+    min-height: 250px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-body {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+
+      .card-link {
+        align-self: center;
+      }
+    }
+  }
+
+  @include breakpoint(sm) {
+    justify-content: space-between;
+
+    .card {
+      flex: 1 0 30%;
+    }
+  }
+
+  @include breakpoint(md) {
+    .card {
+      flex: 0 1 30%;
+    }
+  }
+}
+
+/* Testimonials Module */
+
+.testimonial {
+  .testimonial-body {
+    background-color:rgb(254, 215, 102);
+    border-left: 8px solid $colour-button-primary;
+    padding: 24px 36px;
+    font-size: 1rem;
+
+    .testimonial-pullquote {
+      font-family: Bitter, Arial, sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-image-container {
+      text-align: center;
+      width:100%;
+
+      img {
+        height: 150px;
+        border-radius: 100%;
+      }
+    }
+
+    @include breakpoint(md) {
+    font-size: 1.25rem;
+
+      .testimonial-pullquote {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+
+/* Footer Module */
+
+.footer {
+  margin-top: 3.25rem;
+  background-color: $colour-navbar-background-dark;
+  padding: 1.25rem 2.25rem;
+
+  * {
+    color: $colour-text-light-1;
+  }
+}
+
+/* BUTTON MODULE */
+
+.btn.btn-primary {
+  background-color: $colour-button-primary;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:hover:active,
+  &:active:focus {
+    background-color: $colour-button-primary-hover !important;
+  }
+}
+
+/* UTILITIES */
+
+//Float right for profile image on large devices.
+
+.profile-image {
+  @include breakpoint(xs) {
+    img {
+      width: 100%;
+    }
+  }
+
+  @include breakpoint(sm) {
+    float: right;
+    margin: .75rem;
+  }
+}

@@ -1,0 +1,32 @@
+/* Main Colour Palette */
+
+$linear-gradient-dark: linear-gradient(rgba(30, 30, 30, .5), rgba(30, 30, 30, 0.5));
+$linear-gradient-light: linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.5));
+
+$colour-transparent-dark:rgba(30, 30, 30, .5);
+$colour-transparent-light: rgba(200, 200, 200, 0.5);
+
+// $colour-jumbotron-background: #3578bb;
+// $colour-jumbotron-background: #84A07C;
+// $colour-jumbotron-background: #CEB5A7;
+$colour-jumbotron-background: rgb(254, 215, 102);
+$colour-testimonial-highlight: rgb(254, 215, 102);
+
+$colour-canvas-default: rgb(252, 243, 243);
+$colour-dark-grey: rgb(19, 21, 22);
+$colour-dark-grey-light: rgba(125, 131, 134, 0.4);
+
+$colour-text-light-1: #F8F8F8;
+$colour-text-light-2: #F0F0F0;
+$colour-text-light-3: #F8F8F8;
+$colour-text-dark-1: #101010;
+$colour-text-dark-2: #202020;
+$colour-text-dark-3: #282828;
+
+$colour-box-shadow: #202020;
+$colour-navbar-background-dark: #063d56;
+
+$colour-button-primary: #4784C1;
+$colour-button-primary-hover: #316EAA;
+
+/* Font Stack */

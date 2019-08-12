@@ -1,0 +1,73 @@
+/* Mixins file */
+
+@mixin typography_stack {
+  p {
+    margin-bottom: 1.6rem;
+  }
+
+  p,
+  a,
+  li,
+  button,
+  td {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  }
+
+  h1 {
+    margin: 0 0 1.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ul,
+  ol {
+
+    margin-top: 1rem;
+    ;
+
+    li {
+      padding-left: .5rem;
+    }
+  }
+}
+
+@mixin breakpoint($class) {
+  @if $class==xs {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @else if $class==sm {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $class==md {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @else if $class==lg {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
