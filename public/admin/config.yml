@@ -24,16 +24,26 @@ collections:
                       widget: 'relation',
                       collection: 'pages',
                       search_fields: ['title'],
-                      value_field: ['title', 'date', 'body'],
+                      value_field: 'title',
                   }
     - name: 'pages'
       label: 'Pages'
       folder: 'content/pages'
+      path: '{{parent}}/{{slug}}'
       create: true
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+          - {
+                label: 'Parent',
+                name: 'parent',
+                widget: 'relation',
+                collection: 'pages',
+                search_fields: ['title'],
+                value_field: 'title',
+                required: false,
+            }
     - name: 'projects'
       label: 'Projects'
       folder: 'content/projects'
