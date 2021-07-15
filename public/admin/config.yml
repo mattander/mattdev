@@ -29,8 +29,9 @@ collections:
     - name: 'pages'
       label: 'Pages'
       folder: 'content/pages'
-      path: '{{parent}}/{{slug}}'
       create: true
+      nested:
+          depth: 4
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
@@ -44,6 +45,7 @@ collections:
                 value_field: 'title',
                 required: false,
             }
+      meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
     - name: 'projects'
       label: 'Projects'
       folder: 'content/projects'
