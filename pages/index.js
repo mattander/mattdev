@@ -11,12 +11,3 @@ export default function Home({ title, description, ...props }) {
         </Layout>
     );
 }
-
-export const getStaticProps = async (context) => {
-    // your logic
-    const siteSettings = await import('../content/settings.md');
-
-    return {
-        props: { siteSettings },
-    };
-};
