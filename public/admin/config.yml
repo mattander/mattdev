@@ -36,15 +36,6 @@ collections:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-          - {
-                label: 'Parent',
-                name: 'parent',
-                widget: 'relation',
-                collection: 'pages',
-                search_fields: ['title'],
-                value_field: 'title',
-                required: false,
-            }
       meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
     - name: 'projects'
       label: 'Projects'
