@@ -18,14 +18,21 @@ collections:
                       name: 'site_description',
                       widget: 'text',
                   }
-                - {
-                      label: 'Homepage',
-                      name: 'homepage',
-                      widget: 'relation',
-                      collection: 'pages',
-                      search_fields: ['title'],
-                      value_field: 'title',
-                  }
+                - label: Menu Links
+                  name: menu
+                  widget: list
+                  label_singular: link
+                  summary: '{{fields.name}}'
+                  fields:
+                      - { label: Name, name: name, widget: string }
+                      - label: Page
+                        name: page
+                        widget: relation
+                        collection: pages
+                        search_fields: ['title']
+                        value_field: '{{slug}}'
+                        display_fields: ['title']
+
     - name: 'pages'
       label: 'Pages'
       folder: 'content/pages'

@@ -2,35 +2,40 @@ import Container from '../components/layout/Container';
 import Layout from '../components/layout/Layout';
 import Head from 'next/head';
 import { CMS_NAME } from '../lib/constants';
-import { useRouter } from 'next/dist/client/router';
+import { getAllPosts, getPostBySlug, getTopLevelPages } from '../lib/api';
 
-export default function Index() {
-	const router = useRouter();
-	console.log({ path: router.pathname });
-
+export default function Index({ page, nav, posts, projects }) {
 	return (
 		<>
-			<Layout>
+			<Layout title="Matt Anderson's development website" nav={nav}>
 				<Head>
-					<title>Next.js Blog Example with {CMS_NAME}</title>
+					<title>Mattdev - Home</title>
 				</Head>
-				<Container>Test</Container>
+				<Container>
+					<section>{page.content}</section>
+					<section>
+						<h2>Projects</h2>
+						<p>Here's what I've been working on lately</p>
+					</section>
+				</Container>
 			</Layout>
 		</>
 	);
 }
 
-// export async function getStaticProps() {
-// 	const allPosts = getAllPosts([
-// 		'title',
-// 		'date',
-// 		'slug',
-// 		'author',
-// 		'coverImage',
-// 		'excerpt',
-// 	]);
+export async function getStaticProps() {
+	const page = getPostBySlug('home', 'page', ['content', 'title']);
+	const projects = getAllPosts('project');
+	const posts = getAllPosts('post');
 
-// 	return {
-// 		props: { allPosts },
-// 	};
-// }
+	const nav = getTopLevelPages();
+
+	return {
+		props: {
+			page,
+			nav,
+			projects,
+			posts,
+		},
+	};
+}

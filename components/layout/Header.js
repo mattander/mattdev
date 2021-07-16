@@ -1,12 +1,24 @@
 import Link from 'next/link';
+import Container from './Container';
 
-export default function Header() {
-	return (
-		<h2 className='text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8'>
-			<Link href='/'>
-				<a className='hover:underline'>Blog</a>
+export default function Header({ title, nav }) {
+	const navLinks = nav.map(({ name, page }) => (
+		<li key={`nav-link-${name}`} className='mr-4'>
+			<Link
+				href={page === 'index' ? '/' : '/' + page.replace('/index', '')}
+			>
+				{name}
 			</Link>
-			.
-		</h2>
+		</li>
+	));
+	return (
+		<Container>
+			<header>
+				<nav>
+					<ul className='flex'>{navLinks}</ul>
+				</nav>
+				<h1>{title}</h1>
+			</header>
+		</Container>
 	);
 }
