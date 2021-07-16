@@ -34,6 +34,7 @@ collections:
           depth: 4
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
       meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
@@ -43,6 +44,7 @@ collections:
       create: true
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
           - { label: 'Link', name: 'link', required: false, widget: 'string' }
           - {
                 label: 'Github link',
@@ -64,6 +66,7 @@ collections:
       create: true
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - {
                 label: 'Featured Image',
