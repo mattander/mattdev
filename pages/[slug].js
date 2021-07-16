@@ -2,7 +2,7 @@ import Container from '../components/layout/Container';
 import Layout from '../components/layout/Layout';
 import Head from 'next/head';
 import { CMS_NAME } from '../lib/constants';
-import { getPostBySlug, getTopLevelPages } from '../lib/api';
+import { getPostBySlug, getTopLevelPages, getPostSlugs } from '../lib/api';
 
 export default function Index({ page, nav }) {
 	return (
@@ -11,10 +11,29 @@ export default function Index({ page, nav }) {
 				<Head>
 					<title>Next.js Blog Example with {CMS_NAME}</title>
 				</Head>
-				<Container>Test</Container>
+				<Container>
+					<section>{page.content}</section>
+				</Container>
 			</Layout>
 		</>
 	);
+}
+
+export async function getStaticPaths() {
+	const paths = getPostSlugs('page')
+		.filter((path) => !/.*\.md/.test(path))
+		.map((path) => {
+			return {
+				params: {
+					slug: path,
+				},
+			};
+		});
+
+	return {
+		paths,
+		fallback: false,
+	};
 }
 
 export async function getStaticProps({ params }) {
@@ -24,6 +43,7 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			page,
+			nav,
 		},
 	};
 }
