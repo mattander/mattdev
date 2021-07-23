@@ -1,5 +1,7 @@
 ---
 title: Words
+description: A silly little app where you type a sentance and the words get
+  added to a list of buttons.
 link: https://mattander.github.io/words/
 github_link: https://github.com/mattander/words
 date: 2021-07-14T13:20:54.215Z
