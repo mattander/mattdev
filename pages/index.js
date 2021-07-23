@@ -1,59 +1,41 @@
+import Container from '../components/layout/Container';
+import Layout from '../components/layout/Layout';
 import Head from 'next/head';
-// import Image from 'next/image';
-// import styles from '../styles/Home.module.css';
-import { react as HomeContent } from '../content/home.md';
+import { CMS_NAME } from '../lib/constants';
+import { getAllPosts, getPageBySlug, getTopLevelPages } from '../lib/api';
 
-export default function Home() {
+export default function Index({ page, nav, posts, projects }) {
     return (
         <>
-            <Head>
-                <script
-                    src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-                    async
-                ></script>
-            </Head>
-            <div className="container mx-auto px-10 md:px-40 py-10">
-                <h1 className="text-4xl">Welcome to mattdev.ca</h1>
-                <small className="text-lg mt-2 block mb-4">
-                    It's a bit sparse, but it's a quick read.
-                </small>
-
-                <section className="my-4">
-                    <HomeContent />
-                </section>
-
-                <section className="md:w-4/5">
-                    <h2 className="text-2xl mb-2">What have I done lately?</h2>
-                    <hr className="my-4" />
-                    <h3 className="text-xl mb-2">Words</h3>
-                    <article>
-                        <a
-                            href="https://mattander.github.io/words/"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            I made a silly webapp where you can list words
-                        </a>
-                        . I wrote this in vue becuase I wanted to take the new{' '}
-                        <span className="font-mono text-sm">
-                            &lang;script setup&rang;
-                        </span>{' '}
-                        for a spin. It was fun. I might add more sometime.
-                        Here's the{' '}
-                        <a
-                            href="https://github.com/mattander/words"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            repo on github
-                        </a>
-                        .
-                    </article>
-                </section>
-                <footer className="pt-10">
-                    &copy; Matt Anderson 2021 - Present
-                </footer>
-            </div>
+            <Layout title="Matt Anderson's development website" nav={nav}>
+                <Head>
+                    <title>Mattdev - Home</title>
+                </Head>
+                <Container>
+                    <section>{page.content}</section>
+                    <section>
+                        <h2>Projects</h2>
+                        <p>Here's what I've been working on lately</p>
+                    </section>
+                </Container>
+            </Layout>
         </>
     );
+}
+
+export async function getStaticProps() {
+    const page = getPageBySlug('home', 'page', ['content', 'title']);
+    const projects = getAllPosts('project');
+    const posts = getAllPosts('post');
+
+    const nav = getTopLevelPages();
+
+    return {
+        props: {
+            page,
+            nav,
+            projects,
+            posts,
+        },
+    };
 }

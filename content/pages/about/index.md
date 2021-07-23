@@ -1,5 +1,6 @@
 ---
 title: About
-date: 2021-07-16T15:34:35.465Z
+description: Learn about me
+date: 2021-07-23T17:53:15.315Z
 ---
-About me
+about

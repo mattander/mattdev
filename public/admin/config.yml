@@ -1,26 +1,84 @@
 backend:
     name: git-gateway
     branch: main
+local_backend: true
 media_folder: public/img
 public_folder: img
 collections:
+    - name: 'settings'
+      label: 'Settings'
+      files:
+          - label: 'Site settings'
+            name: 'settings'
+            file: 'content/settings.md'
+            fields:
+                - { label: 'Site title', name: 'site_title', widget: 'string' }
+                - {
+                      label: 'Site description',
+                      name: 'site_description',
+                      widget: 'text',
+                  }
+                - label: Menu Links
+                  name: menu
+                  widget: list
+                  label_singular: link
+                  summary: '{{fields.name}}'
+                  fields:
+                      - { label: Name, name: name, widget: string }
+                      - label: Page
+                        name: page
+                        widget: relation
+                        collection: pages
+                        search_fields: ['title']
+                        value_field: '{{slug}}'
+                        display_fields: ['title']
+
     - name: 'pages'
       label: 'Pages'
-      files:
-          - label: 'Home'
-            name: 'home'
-            file: 'content/home.md'
-            fields:
-                - { label: 'Title', name: 'title', widget: 'string' }
-                - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-                - { label: 'Body', name: 'body', widget: 'markdown' }
+      folder: 'content/pages'
+      create: true
+      nested:
+          depth: 4
+      fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
     - name: 'projects'
       label: 'Projects'
       folder: 'content/projects'
       create: true
       fields:
           - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Link', name: 'link', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Link', name: 'link', required: false, widget: 'string' }
+          - {
+                label: 'Github link',
+                name: 'github_link',
+                required: false,
+                widget: 'string',
+            }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-          - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+          - {
+                label: 'Featured Image',
+                name: 'thumbnail',
+                required: false,
+                widget: 'image',
+            }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+    - name: 'posts'
+      label: 'Posts'
+      folder: 'content/posts'
+      create: true
+      fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+          - {
+                label: 'Featured Image',
+                name: 'thumbnail',
+                required: false,
+                widget: 'image',
+            }
           - { label: 'Body', name: 'body', widget: 'markdown' }
