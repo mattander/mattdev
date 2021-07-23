@@ -22,6 +22,10 @@
     h2 {
         @apply text-xl;
     }
+
+    section {
+        margin-bottom: 1.5rem;
+    }
 }
 
 html,
