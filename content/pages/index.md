@@ -1,5 +1,6 @@
 ---
 title: Home
-date: 2021-07-16T15:55:31.214Z
+description: Mattdev.ca - The personal development website and blog of Matt Anderson.
+date: 2021-07-23T17:43:14.250Z
 ---
-This is the homepage.
+Welcome to mattdev.ca
