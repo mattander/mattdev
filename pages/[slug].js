@@ -2,48 +2,48 @@ import Container from '../components/layout/Container';
 import Layout from '../components/layout/Layout';
 import Head from 'next/head';
 import { CMS_NAME } from '../lib/constants';
-import { getPostBySlug, getTopLevelPages, getPostSlugs } from '../lib/api';
+import { getPageBySlug, getTopLevelPages, getPostSlugs } from '../lib/api';
 
 export default function Index({ page, nav }) {
-	return (
-		<>
-			<Layout title={page.title} nav={nav}>
-				<Head>
-					<title>Next.js Blog Example with {CMS_NAME}</title>
-				</Head>
-				<Container>
-					<section>{page.content}</section>
-				</Container>
-			</Layout>
-		</>
-	);
+    return (
+        <>
+            <Layout title={page.title} nav={nav}>
+                <Head>
+                    <title>Next.js Blog Example with {CMS_NAME}</title>
+                </Head>
+                <Container>
+                    <section>{page.content}</section>
+                </Container>
+            </Layout>
+        </>
+    );
 }
 
 export async function getStaticPaths() {
-	const paths = getPostSlugs('page')
-		.filter((path) => !/.*\.md/.test(path))
-		.map((path) => {
-			return {
-				params: {
-					slug: path,
-				},
-			};
-		});
+    const paths = getPostSlugs('page')
+        .filter((path) => !/.*\.md/.test(path))
+        .map((path) => {
+            return {
+                params: {
+                    slug: path,
+                },
+            };
+        });
 
-	return {
-		paths,
-		fallback: false,
-	};
+    return {
+        paths,
+        fallback: false,
+    };
 }
 
 export async function getStaticProps({ params }) {
-	const page = getPostBySlug(params.slug, 'page', ['content', 'title']);
-	const nav = getTopLevelPages();
+    const page = getPageBySlug(params.slug, 'page', ['content', 'title']);
+    const nav = getTopLevelPages();
 
-	return {
-		props: {
-			page,
-			nav,
-		},
-	};
+    return {
+        props: {
+            page,
+            nav,
+        },
+    };
 }
