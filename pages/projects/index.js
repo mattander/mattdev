@@ -7,7 +7,7 @@ import { getAllPosts, getPostBySlug, getTopLevelPages } from '/lib/api';
 export default function Projects({ nav, projects, page }) {
     return (
         <>
-            <Layout title={page.title} nav={nav}>
+            <Layout title="Projects" nav={nav}>
                 <Head>
                     <title>Mattdev - Projects</title>
                 </Head>
