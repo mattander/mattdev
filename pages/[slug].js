@@ -20,8 +20,12 @@ export default function Index({ page, nav }) {
 }
 
 export async function getStaticPaths() {
+    const blacklist = ['projects', 'posts'];
+    console.log(getPostSlugs('page'));
     const paths = getPostSlugs('page')
-        .filter((path) => !/.*\.md/.test(path))
+        .filter(
+            (path) => !/.*\.md/.test(path) && blacklist.indexOf(path) === -1
+        )
         .map((path) => {
             return {
                 params: {

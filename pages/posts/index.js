@@ -7,9 +7,9 @@ import { getAllPosts, getPostBySlug, getTopLevelPages } from '/lib/api';
 export default function Posts({ nav, posts, page }) {
     return (
         <>
-            <Layout title={page.title} nav={nav}>
+            <Layout title="Posts" nav={nav}>
                 <Head>
-                    <title>Mattdev - {page.title}</title>
+                    <title>Mattdev - Posts</title>
                 </Head>
                 <Container>
                     {page ? <section>{page.content}</section> : null}
