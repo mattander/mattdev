@@ -25,6 +25,7 @@
         "gray-matter": "^4.0.3",
         "postcss": "^8.3.5",
         "precss": "^4.0.0",
+        "showdown": "^1.9.1",
         "tailwindcss": "^2.2.4"
     }
 }
