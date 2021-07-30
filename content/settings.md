@@ -10,8 +10,4 @@ menu:
     page: index
   - name: About
     page: about/index
-  - name: Blog
-    page: blog/index
-  - name: Projects
-    page: projects/index
 ---
