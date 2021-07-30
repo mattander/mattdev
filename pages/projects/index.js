@@ -12,7 +12,11 @@ export default function Projects({ nav, projects, page }) {
                     <title>Mattdev - Projects</title>
                 </Head>
                 <Container>
-                    {page ? <section>{page.content}</section> : null}
+                    {page ? (
+                        <section
+                            dangerouslySetInnerHTML={{ __html: page.content }}
+                        ></section>
+                    ) : null}
                     <section>
                         <h2>Projects</h2>
                         <p>Here's what I've been working on lately</p>

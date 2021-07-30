@@ -13,7 +13,9 @@ export default function Index({ page, nav, posts, projects }) {
                     <title>Mattdev - Home</title>
                 </Head>
                 <Container>
-                    <section>{page.content}</section>
+                    <section
+                        dangerouslySetInnerHTML={{ __html: page.content }}
+                    ></section>
                     <section>
                         <h2>Projects</h2>
                         <p>Here's what I've been working on lately</p>

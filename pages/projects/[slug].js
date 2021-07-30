@@ -12,7 +12,9 @@ export default function SingleProject({ project, nav }) {
                     <title>Mattdev - {project.title}</title>
                 </Head>
                 <Container>
-                    <section>{project.content}</section>
+                    <section
+                        dangerouslySetInnerHTML={{ __html: project.content }}
+                    ></section>
                 </Container>
             </Layout>
         </>

@@ -12,7 +12,11 @@ export default function Posts({ nav, posts, page }) {
                     <title>Mattdev - Posts</title>
                 </Head>
                 <Container>
-                    {page ? <section>{page.content}</section> : null}
+                    {page ? (
+                        <section
+                            dangerouslySetInnerHTML={{ __html: page.content }}
+                        ></section>
+                    ) : null}
                     <section>
                         <h2>Posts</h2>
                         <p>My latest blog posts</p>

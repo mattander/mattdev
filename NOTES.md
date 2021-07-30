@@ -1,3 +1,6 @@
-# Notes and things to remember
+# To do
+Too much repetition with all the dangerously set innerhtml atts. Move that into a base component.
 
-By adding the subfolder + content of the content dir to gitignore, am I breaking the CMS? I feel like I definitely am. But then how would I separate prod and dev content? Hmmm. Maybe I could use env variables to save to an ignored local folder and serve from one when I'm local. Better research cause I think I broke this.
+Posts and Projects listing and single templates look the same. Try to unify them with a single post.js base component that takes a page slug and post type arg.
+
+Maybe the Posts and Projects index files can just be managed by the page/[slug].js file? Just need a way to signify that this is a listings page. Maybe an attribute on the page md file and you choose which post type it's a listing for. 

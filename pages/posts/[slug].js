@@ -12,7 +12,7 @@ export default function SinglePost({ post, nav }) {
                     <title>Mattdev - {post.title}</title>
                 </Head>
                 <Container>
-                    <section>{post.content}</section>
+                    dangerouslySetInnerHTML={{ __html: post.content }}
                 </Container>
             </Layout>
         </>
