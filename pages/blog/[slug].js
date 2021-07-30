@@ -1,19 +1,26 @@
-import Container from '/components/layout/Container';
 import Layout from '/components/layout/Layout';
 import Head from 'next/head';
-import { CMS_NAME } from '/lib/constants';
 import { getPostBySlug, getTopLevelPages, getPostSlugs } from '/lib/api';
+import TitleDivider from '../../components/base/TitleDivider';
 
 export default function SinglePost({ post, nav }) {
     return (
         <>
-            <Layout title={post.title} nav={nav}>
+            <Layout title={'Blog'} nav={nav}>
                 <Head>
                     <title>Mattdev - {post.title}</title>
                 </Head>
-                <Container>
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                </Container>
+                <section>
+                    <div className="inline-block md:max-w-4/5 mt-2 mb-8">
+                        <h1 className="font-serif text-4xl pb-3">
+                            {post.title}
+                        </h1>
+                        <TitleDivider />
+                    </div>
+                    <div
+                        dangerouslySetInnerHTML={{ __html: post.content }}
+                    ></div>
+                </section>
             </Layout>
         </>
     );
@@ -35,7 +42,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const post = getPostBySlug(`${params.slug}.md`, 'post', [
+    const post = getPostBySlug(`${params.slug}.md`, 'blog', [
         'content',
         'title',
         'description',

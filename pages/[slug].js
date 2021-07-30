@@ -1,7 +1,5 @@
-import Container from '../components/layout/Container';
 import Layout from '../components/layout/Layout';
 import Head from 'next/head';
-import { CMS_NAME } from '../lib/constants';
 import { getPostBySlug, getTopLevelPages, getPostSlugs } from '../lib/api';
 
 export default function Index({ page, nav }) {
@@ -11,11 +9,10 @@ export default function Index({ page, nav }) {
                 <Head>
                     <title>Mattdev - {page.title}</title>
                 </Head>
-                <Container>
-                    <section
-                        dangerouslySetInnerHTML={{ __html: page.content }}
-                    ></section>
-                </Container>
+                <section
+                    className="sm:mt-4 content-container"
+                    dangerouslySetInnerHTML={{ __html: page.content }}
+                ></section>
             </Layout>
         </>
     );

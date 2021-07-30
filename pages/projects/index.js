@@ -1,4 +1,3 @@
-import Container from '/components/layout/Container';
 import Layout from '/components/layout/Layout';
 import { BlockList, BlockItem } from '/components/base';
 import Head from 'next/head';
@@ -11,29 +10,28 @@ export default function Projects({ nav, projects, page }) {
                 <Head>
                     <title>Mattdev - Projects</title>
                 </Head>
-                <Container>
-                    {page ? (
-                        <section
-                            dangerouslySetInnerHTML={{ __html: page.content }}
-                        ></section>
-                    ) : null}
-                    <section>
-                        <h2>Projects</h2>
-                        <p>Here's what I've been working on lately</p>
-                        <BlockList>
-                            {projects.map(
-                                ({ description, title, slug, postType }) => (
-                                    <BlockItem
-                                        key={slug}
-                                        title={title}
-                                        link={`${postType}s/${slug}`}
-                                        content={description}
-                                    />
-                                )
-                            )}
-                        </BlockList>
-                    </section>
-                </Container>
+
+                {page ? (
+                    <section
+                        dangerouslySetInnerHTML={{ __html: page.content }}
+                    ></section>
+                ) : null}
+                <section>
+                    <h2>Projects</h2>
+                    <p>Here's what I've been working on lately</p>
+                    <BlockList>
+                        {projects.map(
+                            ({ description, title, slug, postType }) => (
+                                <BlockItem
+                                    key={slug}
+                                    title={title}
+                                    link={`projects/${slug}`}
+                                    content={description}
+                                />
+                            )
+                        )}
+                    </BlockList>
+                </section>
             </Layout>
         </>
     );
