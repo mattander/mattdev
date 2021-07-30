@@ -1,5 +1,7 @@
-export default function Footer() {
-	return (
-		<footer className='pt-10'>&copy; Matt Anderson 2021 - Present</footer>
-	);
+export default function Footer({ className }) {
+    return (
+        <footer className={`${className}`}>
+            &copy; Matt Anderson 2021 - Present
+        </footer>
+    );
 }

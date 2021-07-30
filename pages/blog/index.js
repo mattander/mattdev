@@ -1,4 +1,3 @@
-import Container from '/components/layout/Container';
 import Layout from '/components/layout/Layout';
 import { BlockList, BlockItem } from '/components/base';
 import Head from 'next/head';
@@ -11,25 +10,26 @@ export default function Posts({ nav, posts, page }) {
                 <Head>
                     <title>Mattdev - Posts</title>
                 </Head>
-                <Container>
-                    {page ? <section>{page.content}</section> : null}
-                    <section>
-                        <h2>Posts</h2>
-                        <p>My latest blog posts</p>
-                        <BlockList>
-                            {posts.map(
-                                ({ description, title, slug, postType }) => (
-                                    <BlockItem
-                                        key={slug}
-                                        title={title}
-                                        link={`${postType}/${slug}`}
-                                        content={description}
-                                    />
-                                )
-                            )}
-                        </BlockList>
-                    </section>
-                </Container>
+
+                {page ? (
+                    <section
+                        dangerouslySetInnerHTML={{ __html: page.content }}
+                    ></section>
+                ) : null}
+                <section>
+                    <h2>Posts</h2>
+                    <p>My latest blog posts</p>
+                    <BlockList>
+                        {posts.map(({ description, title, slug, postType }) => (
+                            <BlockItem
+                                key={slug}
+                                title={title}
+                                link={`blog/${slug}`}
+                                content={description}
+                            />
+                        ))}
+                    </BlockList>
+                </section>
             </Layout>
         </>
     );

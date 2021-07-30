@@ -1,19 +1,26 @@
-import Container from '/components/layout/Container';
 import Layout from '/components/layout/Layout';
 import Head from 'next/head';
-import { CMS_NAME } from '/lib/constants';
 import { getPostBySlug, getTopLevelPages, getPostSlugs } from '/lib/api';
+import TitleDivider from '../../components/base/TitleDivider';
 
 export default function SingleProject({ project, nav }) {
     return (
         <>
-            <Layout title={project.title} nav={nav}>
+            <Layout title="Projects" nav={nav}>
                 <Head>
                     <title>Mattdev - {project.title}</title>
                 </Head>
-                <Container>
-                    <section>{project.content}</section>
-                </Container>
+                <section>
+                    <div className="inline-block md:max-w-4/5 mt-2 mb-8">
+                        <h1 className="font-serif text-4xl pb-3">
+                            {project.title}
+                        </h1>
+                        <TitleDivider />
+                    </div>
+                    <div
+                        dangerouslySetInnerHTML={{ __html: project.content }}
+                    ></div>
+                </section>
             </Layout>
         </>
     );

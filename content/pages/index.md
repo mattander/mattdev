@@ -3,7 +3,7 @@ title: Home
 description: The personal website and blog of Matt Anderson.
 date: 2021-07-23T17:51:37.379Z
 ---
-Welcome to mattdev.ca. This site is a bit of a work in progress over here.
+**Welcome to mattdev.ca. This site is a bit of a work in progress right now.**
 
 This is the personal website and blog of Matt Anderson, a frontend developer in Canada.
 
