@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Container from './Container';
 
 export default function Header({ title, nav, className }) {
     const navLinks = nav.map(({ name, page }) => (
@@ -24,12 +23,16 @@ export default function Header({ title, nav, className }) {
                     {navLinks}
                 </ul>
             </nav>
-            <div className="inline-block sm:order-1">
-                <h1 className="text-3xl inline-block">{title} </h1>
-                <span className="block border-t border-gray-400"></span>
-                <small className="inline-block font-serif italic text-xl">
-                    mattdev.ca
-                </small>
+            <div className="sm:order-1">
+                <div className="inline-block">
+                    <h1 className="text-2xl sm:text-3xl inline-block">
+                        {title}{' '}
+                    </h1>
+                    <span className="hidden sm:block border-t border-gray-400"></span>
+                    <small className="inline-block font-serif italic text-lg sm:text-xl ml-2 sm:ml-0">
+                        mattdev.ca
+                    </small>
+                </div>
             </div>
         </header>
     );
