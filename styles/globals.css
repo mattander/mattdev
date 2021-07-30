@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Lora:ital@0;1&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,5 +38,16 @@
 
     p {
         @apply mb-3;
+    }
+}
+
+.layout {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-columns: auto;
+
+    @media screen and (min-width: 576px) {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto auto;
     }
 }

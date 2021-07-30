@@ -8,7 +8,7 @@ import { getAllPosts, getPostBySlug, getTopLevelPages } from '../lib/api';
 export default function Index({ page, nav, posts, projects }) {
     return (
         <>
-            <Layout title="Matt Anderson's development website" nav={nav}>
+            <Layout title="Home" nav={nav}>
                 <Head>
                     <title>Mattdev - Home</title>
                 </Head>
