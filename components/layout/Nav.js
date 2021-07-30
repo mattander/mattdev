@@ -11,6 +11,8 @@ export default function Nav({ nav, className }) {
             >
                 {name}
             </Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/projects">Projects</Link>
             <span className="ml-1 border-gray-800 border-t border-r w-2 h-2 inline-block transform rotate-45">
                 {' '}
             </span>
