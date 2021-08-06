@@ -2,6 +2,7 @@ import Layout from '/components/layout/Layout';
 import Head from 'next/head';
 import { getPostBySlug, getTopLevelPages, getPostSlugs } from '/lib/api';
 import TitleDivider from '../../components/base/TitleDivider';
+import dayjs from 'dayjs';
 
 export default function SingleProject({ project, nav }) {
     return (
@@ -16,6 +17,10 @@ export default function SingleProject({ project, nav }) {
                             {project.title}
                         </h1>
                         <TitleDivider />
+                        <div className="mt-2">
+                            Published{' '}
+                            {dayjs(project.date).format('MMMM DD, YYYY')}
+                        </div>
                     </div>
                     <div
                         dangerouslySetInnerHTML={{ __html: project.content }}

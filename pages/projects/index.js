@@ -2,6 +2,7 @@ import Layout from '/components/layout/Layout';
 import { BlockList, BlockItem } from '/components/base';
 import Head from 'next/head';
 import { getAllPosts, getPostBySlug, getTopLevelPages } from '/lib/api';
+import PostList from '/components/PostList';
 
 export default function Projects({ nav, projects, page }) {
     return (
@@ -16,22 +17,10 @@ export default function Projects({ nav, projects, page }) {
                         dangerouslySetInnerHTML={{ __html: page.content }}
                     ></section>
                 ) : null}
-                <section>
+                <PostList posts={projects} postType="project">
                     <h2>Projects</h2>
                     <p>Here's what I've been working on lately</p>
-                    <BlockList>
-                        {projects.map(
-                            ({ description, title, slug, postType }) => (
-                                <BlockItem
-                                    key={slug}
-                                    title={title}
-                                    link={`projects/${slug}`}
-                                    content={description}
-                                />
-                            )
-                        )}
-                    </BlockList>
-                </section>
+                </PostList>
             </Layout>
         </>
     );
@@ -44,7 +33,7 @@ export async function getStaticProps() {
     const page = projectPageExists
         ? getPostBySlug('projects', 'page', ['content', 'title'])
         : null;
-    const projects = getAllPosts('project', ['description', 'title']);
+    const projects = getAllPosts('project', ['description', 'title', 'date']);
     const nav = getTopLevelPages();
 
     return {

@@ -1,4 +1,4 @@
-import Layout from '../components/layout/Layout';
+import Layout from '/components/layout/Layout';
 import Head from 'next/head';
 import { getPostBySlug, getTopLevelPages, getPostSlugs } from '../lib/api';
 

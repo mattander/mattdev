@@ -1,8 +1,8 @@
 import Layout from '../components/layout/Layout';
-import { BlockList, BlockItem } from '../components/base';
 import Head from 'next/head';
 import { getAllPosts, getPostBySlug, getTopLevelPages } from '../lib/api';
 import TitleDivider from '../components/base/TitleDivider';
+import PostList from '../components/PostList';
 
 export default function Index({ page, nav, posts, projects }) {
     return (
@@ -23,37 +23,15 @@ export default function Index({ page, nav, posts, projects }) {
                         dangerouslySetInnerHTML={{ __html: page.content }}
                     ></div>
                 </section>
-
-                <section>
+                <PostList posts={projects} postType="project">
                     <h2>Projects</h2>
                     <p>Here's what I've been working on lately</p>
-                    <BlockList>
-                        {projects.map(
-                            ({ description, title, slug, postType }) => (
-                                <BlockItem
-                                    key={slug}
-                                    title={title}
-                                    link={`projects/${slug}`}
-                                    content={description}
-                                />
-                            )
-                        )}
-                    </BlockList>
-                </section>
-                <section>
+                </PostList>
+
+                <PostList posts={posts}>
                     <h2>Posts</h2>
                     <p>My latest blog posts</p>
-                    <BlockList>
-                        {posts.map(({ description, title, slug, postType }) => (
-                            <BlockItem
-                                key={slug}
-                                title={title}
-                                link={`blog/${slug}`}
-                                content={description}
-                            />
-                        ))}
-                    </BlockList>
-                </section>
+                </PostList>
             </Layout>
         </>
     );
@@ -61,8 +39,8 @@ export default function Index({ page, nav, posts, projects }) {
 
 export async function getStaticProps() {
     const page = getPostBySlug('home', 'page', ['content', 'title']);
-    const projects = getAllPosts('project', ['description', 'title']);
-    const posts = getAllPosts('post', ['description', 'title']);
+    const projects = getAllPosts('project', ['description', 'title', 'date']);
+    const posts = getAllPosts('post', ['description', 'title', 'date']);
 
     const nav = getTopLevelPages();
 
