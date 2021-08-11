@@ -1,6 +1,6 @@
 ---
 title: About
-description: Learn about me
+description: Learn about Matt Anderson.
 date: 2021-07-23T17:53:15.315Z
 ---
 My name is Matt. I'm a frontend developer and I've been writing code for the web for four years.

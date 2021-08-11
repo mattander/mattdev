@@ -44,6 +44,26 @@ collections:
           - { label: 'Description', name: 'description', widget: 'text' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+          - {
+                label: 'Listing page',
+                name: 'listing_page',
+                widget: 'boolean',
+                default: true,
+                required: false,
+            }
+          - label: 'Post type to list'
+            name: 'list_post_type'
+            widget: 'select'
+            required: false
+            options:
+                - { label: 'Blog posts', value: 'post' }
+                - { label: 'Projects', value: 'project' }
+          - {
+                label: 'Listing content',
+                name: 'listing_content',
+                widget: 'markdown',
+                required: false,
+            }
       meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
     - name: 'projects'
       label: 'Projects'

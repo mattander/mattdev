@@ -1,8 +1,14 @@
 import Layout from '/components/layout/Layout';
 import Head from 'next/head';
-import { getPostBySlug, getTopLevelPages, getPostSlugs } from '../lib/api';
+import PostList from '/components/PostList';
+import {
+    getPostBySlug,
+    getTopLevelPages,
+    getPostSlugs,
+    getAllPosts,
+} from '../lib/api';
 
-export default function Index({ page, nav }) {
+export default function Index({ page, nav, posts }) {
     return (
         <>
             <Layout title={page.title} nav={nav}>
@@ -13,18 +19,21 @@ export default function Index({ page, nav }) {
                     className="sm:mt-4 content-container"
                     dangerouslySetInnerHTML={{ __html: page.content }}
                 ></section>
+                {page.listing_page ? (
+                    <PostList
+                        posts={posts}
+                        postType={page.list_post_type}
+                        content={page.listing_content}
+                    />
+                ) : null}
             </Layout>
         </>
     );
 }
 
 export async function getStaticPaths() {
-    const blacklist = ['projects', 'posts'];
-
     const paths = getPostSlugs('page')
-        .filter(
-            (path) => !/.*\.md/.test(path) && blacklist.indexOf(path) === -1
-        )
+        .filter((path) => !/.*\.md/.test(path))
         .map((path) => {
             return {
                 params: {
@@ -40,13 +49,35 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const page = getPostBySlug(params.slug, 'page', ['content', 'title']);
-    const nav = getTopLevelPages();
+    const props = {
+        slug: params.slug,
+        posts: null,
+    };
+
+    props.page = getPostBySlug(params.slug, 'page', [
+        'content',
+        'title',
+        'listing_page',
+        'list_post_type',
+        'listing_content',
+    ]);
+
+    if (props.page.listing_page) {
+        props.posts = getAllPosts(props.page.list_post_type, [
+            'description',
+            'title',
+            'date',
+        ]);
+        props.listPostType;
+    } else {
+        delete props.page.listing_page;
+        delete props.page.listing_content;
+        delete props.page.list_post_type;
+    }
+
+    props.nav = getTopLevelPages();
 
     return {
-        props: {
-            page,
-            nav,
-        },
+        props,
     };
 }

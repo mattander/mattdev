@@ -8,6 +8,10 @@ main_nav:
 menu:
   - name: Home
     page: index
+  - name: Blog
+    page: blog/index
+  - name: Projects
+    page: projects/index
   - name: About
     page: about/index
 ---
