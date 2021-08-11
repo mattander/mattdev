@@ -1,12 +1,10 @@
 import { BlockList, BlockItem } from './base';
 import dayjs from 'dayjs';
-export default function PostList({ posts, postType, content }) {
+export default function PostList({ posts, postType, children }) {
     const dir = postType === 'project' ? 'projects' : 'blog';
     return (
         <section>
-            {content ? (
-                <div dangerouslySetInnerHTML={{ __html: content }}></div>
-            ) : null}
+            {children}
             <BlockList>
                 {posts
                     .sort((a, b) => new Date(a.date) > new Date(b.date))

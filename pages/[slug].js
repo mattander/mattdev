@@ -20,11 +20,15 @@ export default function Index({ page, nav, posts }) {
                     dangerouslySetInnerHTML={{ __html: page.content }}
                 ></section>
                 {page.listing_page ? (
-                    <PostList
-                        posts={posts}
-                        postType={page.list_post_type}
-                        content={page.listing_content}
-                    />
+                    <PostList posts={posts} postType={page.list_post_type}>
+                        {page.listing_content ? (
+                            <div
+                                dangerouslySetInnerHTML={{
+                                    __html: page.listing_content,
+                                }}
+                            ></div>
+                        ) : null}
+                    </PostList>
                 ) : null}
             </Layout>
         </>
