@@ -1,5 +1,5 @@
 ---
-title: I rebuilt something I made on year ago
+title: I rebuilt something I made one year ago
 description: What I learned from refactoring an app I made at work last year.
 date: 2021-08-25T14:24:26.657Z
 ---
