@@ -22,6 +22,10 @@
         &:visited {
             @apply text-purple-500;
         }
+
+        &.text-black {
+            color: black;
+        }
     }
 
     h1 {

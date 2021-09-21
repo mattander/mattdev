@@ -1,4 +1,5 @@
 import TitleDivider from '../base/TitleDivider';
+import Link from 'next/link';
 
 export default function TitleBlock({ children, className, posttype }) {
     const headingClasses = 'text-2xl sm:text-3xl inline-block mb-1';
@@ -11,9 +12,11 @@ export default function TitleBlock({ children, className, posttype }) {
                     <div className={headingClasses}>{children}</div>
                 )}
                 <TitleDivider className="hidden sm:block" />
-                <small className="inline-block font-serif italic text-lg sm:text-xl sm:mt-1 mt-0 ml-2 sm:ml-0">
-                    mattdev.ca
-                </small>
+                <Link href="/" passHref>
+                    <a className="inline-block font-serif italic text-lg sm:text-xl sm:mt-1 mt-0 ml-2 sm:ml-0 text-black">
+                        mattdev.ca
+                    </a>
+                </Link>
             </div>
         </div>
     );
