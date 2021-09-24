@@ -1,6 +1,6 @@
 ---
 title: Mississauga Parks
-description: "This is the find a park application that I build for my day job. I
+description: "This is the find a park application that I built for my day job. I
   had lot's of challenges here. "
 link: https://www.mississauga.ca/events-and-attractions/parks/find-a-park/
 date: 2021-09-24T18:16:16.959Z
