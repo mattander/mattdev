@@ -22,6 +22,28 @@ export default function SingleProject({ project, nav }) {
                             {dayjs(project.date).format('MMMM DD, YYYY')}
                         </div>
                     </div>
+                    {project.link ? (
+                        <div className="block mb-4">
+                            <a
+                                href={project.link}
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                Visit the page&nbsp;&rarr;
+                            </a>
+                        </div>
+                    ) : null}
+                    {project.github_link ? (
+                        <div className="block mb-4">
+                            <a
+                                href={project.github_link}
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                Visit the Github repo&nbsp;&rarr;
+                            </a>
+                        </div>
+                    ) : null}
                     <div
                         dangerouslySetInnerHTML={{ __html: project.content }}
                     ></div>
@@ -51,6 +73,9 @@ export async function getStaticProps({ params }) {
         'content',
         'title',
         'description',
+        'thumbnail',
+        'link',
+        'github_link',
     ]);
 
     const nav = getTopLevelPages();
