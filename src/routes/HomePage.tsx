@@ -18,25 +18,32 @@ function ExternalLink({ href, children, className }: ExternalLinkProps) {
 type FocusCardProps = {
   name: string;
   description: string;
-  href?: string;
+  githubUrl: string;
+  liveUrl: string;
+  tags: string[];
 };
 
-function FocusCard({ name, description, href }: FocusCardProps) {
-  const content = (
-    <>
-      <span>{name}</span>
-      <p>{description}</p>
-    </>
-  );
-
-  if (href === undefined) {
-    return <article className="project-card">{content}</article>;
-  }
-
+function FocusCard({ name, description, githubUrl, liveUrl, tags }: FocusCardProps) {
   return (
-    <ExternalLink className="project-card" href={href}>
-      {content}
-    </ExternalLink>
+    <article className="project-card">
+      <div className="project-card__body">
+        <h3>{name}</h3>
+        <p>{description}</p>
+      </div>
+      <div className="project-card__links" aria-label={`${name} links`}>
+        <ExternalLink className="project-link" href={githubUrl}>
+          GitHub
+        </ExternalLink>
+        <ExternalLink className="project-link" href={liveUrl}>
+          Live site
+        </ExternalLink>
+      </div>
+      <ul className="project-tags" aria-label={`${name} tech stack`}>
+        {tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    </article>
   );
 }
 
@@ -108,8 +115,8 @@ export function HomePage() {
 
         <section className="project-section" id="projects">
           <div className="section-heading">
-            <p className="section-kicker">Current focus</p>
-            <h2>Modern systems, sharper workflows, fewer mysteries.</h2>
+            <p className="section-kicker">Side projects</p>
+            <h2>Playable ideas with real systems underneath.</h2>
           </div>
           <div className="project-grid">
             {projects.map((project) => (
@@ -117,7 +124,9 @@ export function HomePage() {
                 key={project.name}
                 name={project.name}
                 description={project.description}
-                href={project.href}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+                tags={project.tags}
               />
             ))}
           </div>

@@ -20,7 +20,9 @@ export type ActivityItem = {
 export type ProjectItem = {
   name: string;
   description: string;
-  href?: string;
+  githubUrl: string;
+  liveUrl: string;
+  tags: string[];
 };
 
 export const links: LinkItem[] = [
@@ -93,18 +95,27 @@ export const skills: string[] = [
 
 export const projects: ProjectItem[] = [
   {
-    name: "React architecture and migration",
+    name: "Jank Launcher",
     description:
-      "Component systems, routing, state boundaries, form patterns, typed contracts, and UI architecture that can survive real product pressure.",
+      "A hand-drawn 2D rocket sandbox for building weird little spacecraft, launching them across a tiny solar system, shaping orbits, landing badly, and firing lasers at whatever gets in the way.",
+    githubUrl: "https://github.com/mattander/jank-launcher",
+    liveUrl: "https://jank-launcher.pages.dev",
+    tags: ["Vite", "TypeScript", "PixiJS", "Vitest", "Cloudflare Pages"],
   },
   {
-    name: "Agentic product engineering",
+    name: "Just Quiz Me",
     description:
-      "Agent UX, prompt and skill guidance, recovery states, permissions, and AI-assisted workflows for turning rough intent into reviewed software.",
-  },
-  {
-    name: "Quality and delivery systems",
-    description:
-      "TypeScript hardening, cast removal, browser test stability, release automation, deploy gates, documentation, and reviewable change sets.",
+      "A fast, absurd quiz site with a lightweight public homepage, multiple published quizzes, instant result pages, and a Cloudflare-backed runtime built for shareable nonsense.",
+    githubUrl: "https://github.com/mattander/just-quiz-me",
+    liveUrl: "https://justquiz.me",
+    tags: [
+      "TanStack Start",
+      "React",
+      "TypeScript",
+      "Cloudflare Workers",
+      "D1",
+      "Tailwind CSS",
+      "Valibot",
+    ],
   },
 ];
