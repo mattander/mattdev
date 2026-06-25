@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name mattdev --branch main",
     "lint": "oxlint",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
@@ -25,6 +26,7 @@
     "@types/react-dom": "19.2.3",
     "oxfmt": "0.56.0",
     "oxlint": "1.71.0",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wrangler": "^4.105.0"
   }
 }
