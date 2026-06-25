@@ -45,12 +45,12 @@ export function HomePage() {
     <div className="resume-site">
       <main>
         <section className="hero" aria-labelledby="intro-heading">
-          <p className="eyebrow">Frontend developer in Canada</p>
+          <p className="eyebrow">Software engineer in Canada</p>
           <h1 id="intro-heading">
-            Frontend developer building practical web interfaces for real people.
+            Software engineer building practical web interfaces for real people.
           </h1>
           <p className="intro">
-            I am Matt Anderson, a frontend developer with a writing and UX background. My work sits
+            I am Matt Anderson, a software engineer with a writing and UX background. My work sits
             in the useful middle: modern React, TypeScript, agentic development workflows, clear
             architecture, and interfaces that stay understandable after launch.
           </p>
@@ -126,7 +126,7 @@ export function HomePage() {
 
       <footer className="site-footer">
         <span>Matt Anderson</span>
-        <span>Frontend developer</span>
+        <span>Software engineer</span>
       </footer>
     </div>
   );
