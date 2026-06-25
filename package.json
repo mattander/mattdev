@@ -1,32 +1,30 @@
 {
-    "name": "mattdev",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint",
-        "export": "npm run build && next export"
-    },
-    "dependencies": {
-        "dayjs": "^1.10.6",
-        "next": "11.0.1",
-        "react": "^17.0.2",
-        "react-dom": "17.0.2"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.14.6",
-        "@babel/preset-react": "^7.14.5",
-        "autoprefixer": "^10.3.1",
-        "eslint": "7.30.0",
-        "eslint-config-next": "11.0.1",
-        "frontmatter-markdown-loader": "^3.6.3",
-        "fs": "^0.0.1-security",
-        "gray-matter": "^4.0.3",
-        "postcss": "^8.3.5",
-        "precss": "^4.0.0",
-        "showdown": "^1.9.1",
-        "tailwindcss": "^2.2.4"
-    }
+  "name": "mattdev",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "oxlint",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "check": "npm run lint && npm run format:check && npm run build"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "1.170.16",
+    "@vitejs/plugin-react": "6.0.3",
+    "lucide-react": "^1.21.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "vite": "8.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "oxfmt": "0.56.0",
+    "oxlint": "1.71.0",
+    "typescript": "6.0.3"
+  }
 }
