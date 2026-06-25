@@ -20,6 +20,8 @@ export type ActivityItem = {
 export type ProjectItem = {
   name: string;
   description: string;
+  imageAlt: string;
+  imageSrc: string;
   githubUrl: string;
   liveUrl: string;
   tags: string[];
@@ -98,6 +100,8 @@ export const projects: ProjectItem[] = [
     name: "Jank Launcher",
     description:
       "A hand-drawn 2D rocket sandbox for building weird little spacecraft, launching them across a tiny solar system, shaping orbits, landing badly, and firing lasers at whatever gets in the way.",
+    imageAlt: "Jank Launcher preview with a hand-drawn rocket over a dark space background",
+    imageSrc: "/projects/jank-launcher-card.png",
     githubUrl: "https://github.com/mattander/jank-launcher",
     liveUrl: "https://jank-launcher.pages.dev",
     tags: ["Vite", "TypeScript", "PixiJS", "Vitest", "Cloudflare Pages"],
@@ -106,6 +110,8 @@ export const projects: ProjectItem[] = [
     name: "Just Quiz Me",
     description:
       "A fast, absurd quiz site with a lightweight public homepage, multiple published quizzes, instant result pages, and a Cloudflare-backed runtime built for shareable nonsense.",
+    imageAlt: "Just Quiz Me preview card with the site logo and tagline",
+    imageSrc: "/projects/just-quiz-me-card.png",
     githubUrl: "https://github.com/mattander/just-quiz-me",
     liveUrl: "https://justquiz.me",
     tags: [

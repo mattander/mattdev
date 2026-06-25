@@ -429,16 +429,26 @@ h3 {
 }
 
 .project-card {
+  overflow: hidden;
   flex-direction: column;
-  gap: 26px;
+  gap: 22px;
   justify-content: space-between;
-  min-height: 340px;
-  padding: 24px;
+  min-height: 480px;
+}
+
+.project-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  border-bottom: 1px solid var(--line);
+  object-fit: cover;
+  background: var(--bg);
 }
 
 .project-card__body {
   display: grid;
   gap: 16px;
+  padding: 0 24px;
 }
 
 .project-card h3 {
@@ -457,6 +467,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 0 24px;
 }
 
 .project-link,
@@ -480,7 +491,7 @@ h3 {
 
 .project-tags {
   margin: 0;
-  padding: 0;
+  padding: 0 24px 24px;
   list-style: none;
 }
 

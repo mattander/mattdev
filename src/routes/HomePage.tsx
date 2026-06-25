@@ -18,14 +18,25 @@ function ExternalLink({ href, children, className }: ExternalLinkProps) {
 type FocusCardProps = {
   name: string;
   description: string;
+  imageAlt: string;
+  imageSrc: string;
   githubUrl: string;
   liveUrl: string;
   tags: string[];
 };
 
-function FocusCard({ name, description, githubUrl, liveUrl, tags }: FocusCardProps) {
+function FocusCard({
+  name,
+  description,
+  imageAlt,
+  imageSrc,
+  githubUrl,
+  liveUrl,
+  tags,
+}: FocusCardProps) {
   return (
     <article className="project-card">
+      <img className="project-card__image" src={imageSrc} alt={imageAlt} loading="lazy" />
       <div className="project-card__body">
         <h3>{name}</h3>
         <p>{description}</p>
@@ -124,6 +135,8 @@ export function HomePage() {
                 key={project.name}
                 name={project.name}
                 description={project.description}
+                imageAlt={project.imageAlt}
+                imageSrc={project.imageSrc}
                 githubUrl={project.githubUrl}
                 liveUrl={project.liveUrl}
                 tags={project.tags}
