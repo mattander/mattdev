@@ -419,7 +419,7 @@ h3 {
 }
 
 .section-heading h2 {
-  max-width: 13ch;
+  max-width: 100%;
 }
 
 .project-grid {
