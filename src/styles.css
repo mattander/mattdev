@@ -115,9 +115,18 @@ main {
 }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   width: fit-content;
   font-weight: 750;
   letter-spacing: 0;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
 }
 
 .site-nav {

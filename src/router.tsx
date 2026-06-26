@@ -7,7 +7,8 @@ function RootLayout() {
     <>
       <header className="site-header" aria-label="Matt Anderson">
         <Link className="wordmark" to="/" aria-label="Matt Anderson">
-          Matt Anderson
+          <img className="brand-mark" src="/brand-mark.svg" alt="" aria-hidden="true" />
+          <span>Matt Anderson</span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
           <a href="#work">Work</a>
