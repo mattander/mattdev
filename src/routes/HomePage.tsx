@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { activity, links, projects, skills, work } from "../siteData";
+import { activity, links, projects, skillGroups, work } from "../siteData";
 
 type ExternalLinkProps = {
   href: string;
@@ -63,16 +63,14 @@ export function HomePage() {
     <div className="resume-site">
       <main>
         <section className="hero" aria-labelledby="intro-heading">
-          <p className="eyebrow">Software engineer in Canada</p>
-          <h1 id="intro-heading">
-            Software engineer building practical web interfaces for real people.
-          </h1>
+          <p className="eyebrow">Matt Anderson / software engineer in Canada</p>
+          <h1 id="intro-heading">I build sturdy React interfaces and weird browser things.</h1>
           <p className="intro">
-            I am Matt Anderson, a software engineer with a writing and UX background. My work sits
-            in the useful middle: modern React, TypeScript, agentic development workflows, clear
-            architecture, and interfaces that stay understandable after launch.
+            I work in the useful middle between product UI, typed frontend systems, and AI-assisted
+            development loops. The common thread is making software easier to understand after the
+            clever part is over.
           </p>
-          <dl className="activity-list" aria-label="GitHub activity highlights from the last year">
+          <dl className="activity-list" aria-label="Current project signals">
             {activity.map((item) => (
               <div className="activity-item" key={item.label}>
                 <dt>
@@ -95,8 +93,8 @@ export function HomePage() {
 
         <section className="split-section" id="work">
           <div>
-            <p className="section-kicker">What I do</p>
-            <h2>Recent work across product, platform, and agent workflows.</h2>
+            <p className="section-kicker">Where I am useful</p>
+            <h2>Typed UI, browser checks, and release paths that stay boring.</h2>
           </div>
           <div className="timeline">
             {work.map((item) => (
@@ -114,14 +112,21 @@ export function HomePage() {
 
         <section className="split-section compact">
           <div>
-            <p className="section-kicker">Tooling</p>
-            <h2>Mostly frontend, deliberately broad.</h2>
+            <p className="section-kicker">Working stack</p>
+            <h2>Tools grouped by the job they do.</h2>
           </div>
-          <ul className="skill-list" aria-label="Skills">
-            {skills.map((skill) => (
-              <li key={skill}>{skill}</li>
+          <div className="skill-groups" aria-label="Skills grouped by workflow">
+            {skillGroups.map((group) => (
+              <section className="skill-group" key={group.label} aria-label={group.label}>
+                <h3>{group.label}</h3>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
             ))}
-          </ul>
+          </div>
         </section>
 
         <section className="project-section" id="projects">

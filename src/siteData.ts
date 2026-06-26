@@ -17,6 +17,11 @@ export type ActivityItem = {
   detail: string;
 };
 
+export type SkillGroup = {
+  label: string;
+  items: string[];
+};
+
 export type ProjectItem = {
   name: string;
   description: string;
@@ -42,57 +47,55 @@ export const links: LinkItem[] = [
 
 export const work: WorkItem[] = [
   {
-    title: "Type-safe frontend systems",
-    place: "React, routing, tooling",
-    period: "Recent focus",
-    body: "Builds and hardens React systems with typed data flow, shared route contracts, validation boundaries, and linting that catches real problems before review.",
+    title: "React surfaces that age well",
+    place: "Routing, forms, state, validation",
+    period: "Product UI",
+    body: "Builds typed interfaces with clear route contracts, boring data flow, and component boundaries that still make sense after the first launch.",
   },
   {
-    title: "Agentic product work",
-    place: "AI-assisted workflows",
-    period: "Recent focus",
-    body: "Works on agent-facing product surfaces and uses AI agents as practical engineering partners for planning, implementation, verification, and review loops.",
+    title: "AI-assisted work with guardrails",
+    place: "Prompts, permissions, recovery states",
+    period: "Workflow design",
+    body: "Turns rough intent into reviewable software without hiding the machinery: plans, diffs, tests, browser checks, and clear places for people to steer.",
   },
   {
-    title: "Platform and delivery",
-    place: "DX, tests, releases",
-    period: "Recent focus",
-    body: "Improves the machinery around product work: browser test reliability, CI and deploy gates, release automation, documentation, and code review habits.",
+    title: "Deploys you can repeat",
+    place: "GitHub Actions, Cloudflare, browser QA",
+    period: "Delivery",
+    body: "Tightens the path from local change to shipped page with checks that catch real regressions and deployment steps that are easy to repeat.",
   },
 ];
 
 export const activity: ActivityItem[] = [
   {
-    value: "1.4k+",
-    label: "contributions",
-    detail: "last 12 months",
+    value: "Jank Launcher",
+    label: "browser game",
+    detail: "PixiJS rocket sandbox with hand-drawn procedural art and flight logic",
   },
   {
-    value: "190+",
-    label: "active days",
-    detail: "steady product, platform, and tooling work",
+    value: "Just Quiz Me",
+    label: "quiz app",
+    detail: "TanStack Start app on Cloudflare Workers with authored quiz content",
   },
 ];
 
-export const skills: string[] = [
-  "TypeScript",
-  "React",
-  "Agentic dev",
-  "Architecture",
-  "AI-assisted workflows",
-  "Frontend systems",
-  "Vite",
-  "TanStack Router",
-  "Oxlint",
-  "Vitest",
-  "Playwright",
-  "GitHub Actions",
-  "Cloudflare",
-  "Design systems",
-  "Accessibility",
-  "Performance",
-  "Code review",
-  "Developer tooling",
+export const skillGroups: SkillGroup[] = [
+  {
+    label: "Interface work",
+    items: ["React", "TypeScript", "TanStack Router", "Forms", "Accessibility"],
+  },
+  {
+    label: "Shipping",
+    items: ["Vite", "GitHub Actions", "Cloudflare", "Wrangler", "Release checks"],
+  },
+  {
+    label: "Quality",
+    items: ["Vitest", "Playwright", "Oxlint", "Browser QA", "Code review"],
+  },
+  {
+    label: "Product systems",
+    items: ["Design systems", "Agent workflows", "Performance", "Architecture"],
+  },
 ];
 
 export const projects: ProjectItem[] = [
