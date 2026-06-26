@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Matt Anderson monogram</title>
+  <rect width="64" height="64" rx="14" fill="#f7f5ef" />
+  <path
+    fill="#171717"
+    d="M15 45V19h7l10 15 10-15h7v26h-7V31l-7 10h-6L22 31v14h-7Z"
+  />
+  <path d="M16 50h32" stroke="#0f766e" stroke-linecap="round" stroke-width="4" />
+</svg>
