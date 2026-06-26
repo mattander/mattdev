@@ -47,54 +47,54 @@ export const links: LinkItem[] = [
 
 export const work: WorkItem[] = [
   {
-    title: "React surfaces that age well",
-    place: "Routing, forms, state, validation",
-    period: "Product UI",
-    body: "Builds typed interfaces with clear route contracts, boring data flow, and component boundaries that still make sense after the first launch.",
+    title: "Frontend architecture teams can build on",
+    place: "Composition, routing, forms, state",
+    period: "Patterns",
+    body: "Defines scalable component boundaries, route contracts, and data flows so teams can move faster without turning the UI into a pile of special cases.",
   },
   {
-    title: "AI-assisted work with guardrails",
-    place: "Prompts, permissions, recovery states",
-    period: "Workflow design",
-    body: "Turns rough intent into reviewable software without hiding the machinery: plans, diffs, tests, browser checks, and clear places for people to steer.",
+    title: "Accessible experiences with texture",
+    place: "HTML, CSS, interaction details",
+    period: "Craft",
+    body: "Cares about the full frontend stack: semantic markup, the CSS spec, keyboard flows, readable states, and the small bits of delight that make a product feel considered.",
   },
   {
-    title: "Deploys you can repeat",
-    place: "GitHub Actions, Cloudflare, browser QA",
-    period: "Delivery",
-    body: "Tightens the path from local change to shipped page with checks that catch real regressions and deployment steps that are easy to repeat.",
+    title: "Problem solving past the UI layer",
+    place: "Agents, CI, scaffolding, delivery",
+    period: "Systems",
+    body: "Uses structural thinking and agent workflows to take on platform problems too: continuous deployment, app scaffolding, browser verification, and safer engineering loops.",
   },
 ];
 
 export const activity: ActivityItem[] = [
   {
-    value: "Jank Launcher",
-    label: "browser game",
-    detail: "PixiJS rocket sandbox with hand-drawn procedural art and flight logic",
+    value: "Writing + UX testing",
+    label: "background",
+    detail: "Non-traditional engineering path with a strong bias toward clarity and user evidence",
   },
   {
-    value: "Just Quiz Me",
-    label: "quiz app",
-    detail: "TanStack Start app on Cloudflare Workers with authored quiz content",
+    value: "Frontend architecture",
+    label: "specialty",
+    detail: "Composable patterns, accessible foundations, and interfaces teams can extend",
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: "Interface work",
-    items: ["React", "TypeScript", "TanStack Router", "Forms", "Accessibility"],
+    label: "Frontend fundamentals",
+    items: ["Semantic HTML", "CSS spec", "Accessibility", "Interaction states", "Performance"],
   },
   {
-    label: "Shipping",
-    items: ["Vite", "GitHub Actions", "Cloudflare", "Wrangler", "Release checks"],
+    label: "Compositional UI",
+    items: ["React", "TypeScript", "TanStack Router", "Forms", "Design systems"],
   },
   {
-    label: "Quality",
+    label: "Engineering systems",
+    items: ["Architecture", "Scaffolding", "GitHub Actions", "Cloudflare", "Release checks"],
+  },
+  {
+    label: "Verification",
     items: ["Vitest", "Playwright", "Oxlint", "Browser QA", "Code review"],
-  },
-  {
-    label: "Product systems",
-    items: ["Design systems", "Agent workflows", "Performance", "Architecture"],
   },
 ];
 

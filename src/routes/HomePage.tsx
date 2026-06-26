@@ -64,11 +64,11 @@ export function HomePage() {
       <main>
         <section className="hero" aria-labelledby="intro-heading">
           <p className="eyebrow">Matt Anderson / software engineer in Canada</p>
-          <h1 id="intro-heading">I build sturdy React interfaces and weird browser things.</h1>
+          <h1 id="intro-heading">Frontend architecture with a user-first spine.</h1>
           <p className="intro">
-            I work in the useful middle between product UI, typed frontend systems, and AI-assisted
-            development loops. The common thread is making software easier to understand after the
-            clever part is over.
+            I came to engineering through writing and UX testing, so I tend to notice the seams:
+            unclear flows, brittle components, missing semantics, inaccessible states. I build React
+            systems that feel good to use and stay legible for the teams extending them.
           </p>
           <dl className="activity-list" aria-label="Current project signals">
             {activity.map((item) => (
@@ -94,7 +94,7 @@ export function HomePage() {
         <section className="split-section" id="work">
           <div>
             <p className="section-kicker">Where I am useful</p>
-            <h2>Typed UI, browser checks, and release paths that stay boring.</h2>
+            <h2>Strong frontend foundations, then the systems around them.</h2>
           </div>
           <div className="timeline">
             {work.map((item) => (
@@ -113,7 +113,7 @@ export function HomePage() {
         <section className="split-section compact">
           <div>
             <p className="section-kicker">Working stack</p>
-            <h2>Tools grouped by the job they do.</h2>
+            <h2>Not just libraries. The parts of frontend that compound.</h2>
           </div>
           <div className="skill-groups" aria-label="Skills grouped by workflow">
             {skillGroups.map((group) => (
