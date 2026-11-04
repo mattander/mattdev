@@ -93,7 +93,7 @@ export const headlineThread: ReviewThread = {
     {
       author: "mattander",
       role: "author",
-      body: "Fair. Mine comes from before I wrote code. I came up through writing and UX testing, watching real people get stuck. I still start there: what's confusing, what's slow, what breaks. Then I fix it at whatever layer it lives.",
+      body: "I came to software sideways. I was a digital content writer, a UX tester, and a webmaster, and I was talking to users about their experience before I could write a line of code. So when I'm solving a problem, I start with the person, not the software.",
     },
   ],
 };
@@ -104,12 +104,12 @@ export const agentsThread: ReviewThread = {
     {
       author: "you",
       role: "reviewer",
-      body: "If agents write the code now, what's left for you?",
+      body: "If agents write code now, what do you do?",
     },
     {
       author: "mattander",
       role: "author",
-      body: "Judgment. Deciding what's worth building, catching where an agent's design is quietly wrong, and saying out loud when a project is at risk. Agents widen how far I can reach. They don't decide where to go, and they don't tell me when to pull in an expert instead of becoming a one-person team.",
+      body: "I bring the whole-product view. Agents are great at producing code, but not at knowing whether it's the right code for this product and these users. An agent can run 59 QA scenarios overnight. Deciding which bugs actually matter to a customer is still my job. Software engineering was never just about code. We may write less of it now, but we haven't stopped solving problems.",
     },
   ],
 };
