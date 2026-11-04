@@ -55,7 +55,7 @@ export const links: LinkItem[] = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mattanderson",
+    href: "https://www.linkedin.com/in/matt-anderson-75197246/",
     meta: "profile",
   },
 ];
