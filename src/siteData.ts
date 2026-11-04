@@ -4,31 +4,46 @@ export type LinkItem = {
   meta: string;
 };
 
-export type WorkItem = {
-  title: string;
-  place: string;
-  period: string;
+export type Comment = {
+  author: "you" | "mattander";
+  role: string;
   body: string;
 };
 
-export type ActivityItem = {
-  value: string;
-  label: string;
+export type ReviewThread = {
+  id: string;
+  comments: Comment[];
+};
+
+export type Commit = {
+  hash: string;
+  type: string;
+  message: string;
   detail: string;
 };
 
-export type SkillGroup = {
+export type CommitGroup = {
   label: string;
+  period: string;
+  commits: Commit[];
+};
+
+export type Check = {
+  name: string;
+  status: "pass" | "warn";
+  summary: string;
+  duration: string;
   items: string[];
 };
 
 export type ProjectItem = {
+  path: string;
   name: string;
   description: string;
   imageAlt: string;
   imageSrc: string;
-  githubUrl: string;
-  liveUrl: string;
+  githubUrl?: string;
+  liveUrl?: string;
   tags: string[];
 };
 
@@ -45,86 +60,217 @@ export const links: LinkItem[] = [
   },
 ];
 
-export const work: WorkItem[] = [
+export const pullRequest = {
+  number: 1,
+  title: "Matt Anderson: product engineer, frontend at heart",
+  author: "mattander",
+  head: "frontend-roots",
+  base: "whole-product",
+  labels: ["product", "frontend", "agents"],
+  location: "Canada",
+  currently: "Customer.io",
+};
+
+export const readmeDiff = {
+  file: "README.md",
+  context: "# Matt Anderson, software engineer in Canada",
+  removed: "Frontend architecture with a user-first spine.",
+  added: "User-first software engineer. Frontend roots, whole‑product reach.",
+  body: [
+    "I learned the craft in frontend: semantic HTML, accessible states, and React systems other teams can extend.",
+    "Agents changed my radius. Now I follow a product problem wherever it lives: Go services, schema migrations, CI, observability, even an iOS app.",
+  ],
+};
+
+export const headlineThread: ReviewThread = {
+  id: "headline",
+  comments: [
+    {
+      author: "you",
+      role: "reviewer",
+      body: "nit: every engineer says they're user-first. What does it mean for you?",
+    },
+    {
+      author: "mattander",
+      role: "author",
+      body: "Fair. Mine comes from before I wrote code. I came up through writing and UX testing, watching real people get stuck. I still start there: what's confusing, what's slow, what breaks. Then I fix it at whatever layer it lives.",
+    },
+  ],
+};
+
+export const agentsThread: ReviewThread = {
+  id: "agents",
+  comments: [
+    {
+      author: "you",
+      role: "reviewer",
+      body: "If agents write the code now, what's left for you?",
+    },
+    {
+      author: "mattander",
+      role: "author",
+      body: "Judgment. Deciding what's worth building, catching where an agent's design is quietly wrong, and saying out loud when a project is at risk. Agents widen how far I can reach. They don't decide where to go, and they don't tell me when to pull in an expert instead of becoming a one-person team.",
+    },
+  ],
+};
+
+export const commitGroups: CommitGroup[] = [
   {
-    title: "Frontend architecture teams can build on",
-    place: "Composition, routing, forms, state",
-    period: "Patterns",
-    body: "Defines scalable component boundaries, route contracts, and data flows so teams can move faster without turning the UI into a pile of special cases.",
+    label: "Customer.io",
+    period: "2026 to now",
+    commits: [
+      {
+        hash: "d7a2f19",
+        type: "feat(automations)",
+        message: "Lead Draft Mode from architecture to launch",
+        detail:
+          "Project lead. Shipped the Go publish pipeline as a frontend engineer and coordinated launch across product, design, docs, and beta customers.",
+      },
+      {
+        hash: "c3d05e7",
+        type: "ci(deploy)",
+        message: "Ship continuous deployment for the frontend repos in my first 10 days",
+        detail:
+          "Label-driven, coalesced deploys on GitHub Actions with release gates. Then a runbook, a retro, and pause controls in the internal deploy tool so the team could trust it.",
+      },
+      {
+        hash: "4c90e3b",
+        type: "perf(web)",
+        message: "Cut the app's entry bundle from 1.47 MB to 794 KB",
+        detail: "Route-level code splitting, shipped to production.",
+      },
+      {
+        hash: "b18f6d0",
+        type: "feat(ai)",
+        message: "Ground the AI assistant's answers",
+        detail:
+          "After real hallucination incidents, added a grounded-answers rule, then made it measurable with a refusal metric, dashboards, and evals.",
+      },
+      {
+        hash: "e62c1a8",
+        type: "ci(agents)",
+        message: "Build a bot that fixes flaky tests",
+        detail:
+          "Watches flaky-test reports, deduplicates them, spawns fix workers, opens PRs, and routes review to the right people.",
+      },
+      {
+        hash: "0fa83e2",
+        type: "feat(ios)",
+        message: "Build the core screens of a hack-week iOS app",
+        detail: "Feed, chat, tasks, and outcomes for the Customer.io agent, in three days.",
+      },
+    ],
   },
   {
-    title: "Accessible experiences with texture",
-    place: "HTML, CSS, interaction details",
-    period: "Craft",
-    body: "Cares about the full frontend stack: semantic markup, the CSS spec, keyboard flows, readable states, and the small bits of delight that make a product feel considered.",
-  },
-  {
-    title: "Problem solving past the UI layer",
-    place: "Agents, CI, scaffolding, delivery",
-    period: "Systems",
-    body: "Uses structural thinking and agent workflows to take on platform problems too: continuous deployment, app scaffolding, browser verification, and safer engineering loops.",
+    label: "Before that",
+    period: "",
+    commits: [
+      {
+        hash: "a3e1c05",
+        type: "feat",
+        message: "Frontend architecture",
+        detail:
+          "Composable React patterns, accessible foundations, and interfaces teams can extend without special cases.",
+      },
+      {
+        hash: "7c2b9f1",
+        type: "feat",
+        message: "UX testing",
+        detail: "Learned to watch people struggle with software and write down exactly why.",
+      },
+      {
+        hash: "1e00d2a",
+        type: "init",
+        message: "Writing",
+        detail: "Where the bias toward clarity started.",
+      },
+    ],
   },
 ];
 
-export const activity: ActivityItem[] = [
+export const checks: Check[] = [
   {
-    value: "Writing + UX testing",
-    label: "background",
-    detail: "Non-traditional engineering path with a strong bias toward clarity and user evidence",
+    name: "product",
+    status: "pass",
+    summary: "Research, scoping, decisions, launches",
+    duration: "4s",
+    items: ["UX testing", "Scope docs", "Decision records", "Launch coordination", "Writing"],
   },
   {
-    value: "Frontend architecture",
-    label: "specialty",
-    detail: "Composable patterns, accessible foundations, and interfaces teams can extend",
-  },
-];
-
-export const skillGroups: SkillGroup[] = [
-  {
-    label: "Frontend fundamentals",
-    items: ["Semantic HTML", "CSS spec", "Accessibility", "Interaction states", "Performance"],
+    name: "frontend",
+    status: "pass",
+    summary: "Where the knowledge was built",
+    duration: "2s",
+    items: ["React", "TypeScript", "TanStack Router", "Accessibility", "CSS", "Performance"],
   },
   {
-    label: "Compositional UI",
-    items: ["React", "TypeScript", "TanStack Router", "Forms", "Design systems"],
+    name: "backend",
+    status: "pass",
+    summary: "Followed the product into services",
+    duration: "9s",
+    items: ["Go", "Schema migrations", "Transactions", "API design", "ADRs"],
   },
   {
-    label: "Engineering systems",
-    items: ["Architecture", "Scaffolding", "GitHub Actions", "Cloudflare", "Release checks"],
+    name: "agents",
+    status: "pass",
+    summary: "Agents as teammates, with guardrails",
+    duration: "6s",
+    items: ["Claude Code", "Codex", "Agent workflows", "Evals", "AI code review"],
   },
   {
-    label: "Verification",
-    items: ["Vitest", "Playwright", "Oxlint", "Browser QA", "Code review"],
+    name: "platform",
+    status: "pass",
+    summary: "Shipping safely and seeing what happened",
+    duration: "7s",
+    items: ["Continuous deployment", "GitHub Actions", "Cloudflare", "Grafana", "Prometheus"],
+  },
+  {
+    name: "verify",
+    status: "pass",
+    summary: "Proof before merge",
+    duration: "11s",
+    items: ["Vitest", "Playwright", "Browser QA", "Code review"],
+  },
+  {
+    name: "physics",
+    status: "warn",
+    summary: "Rockets land badly. Working as intended.",
+    duration: "∞",
+    items: ["PixiJS", "Orbital mechanics, roughly"],
   },
 ];
 
 export const projects: ProjectItem[] = [
   {
+    path: "projects/porthole",
+    name: "Porthole",
+    description:
+      "A native Linux family calendar and weather dashboard running on a hacked digital photo frame, with an optional AI briefing. No browser required.",
+    imageAlt: "Porthole showing the time, weather forecast, and today's calendar events",
+    imageSrc: "/projects/porthole-card.png",
+    githubUrl: "https://github.com/mattander/porthole",
+    tags: ["C++", "Qt", "Linux", "CalDAV", "AI"],
+  },
+  {
+    path: "projects/jank-launcher",
     name: "Jank Launcher",
     description:
-      "A hand-drawn 2D rocket sandbox for building weird little spacecraft, launching them across a tiny solar system, shaping orbits, landing badly, and firing lasers at whatever gets in the way.",
+      "A hand-drawn 2D rocket sandbox for building weird little spacecraft, launching them across a tiny solar system, landing badly, and firing lasers at whatever gets in the way.",
     imageAlt: "Jank Launcher preview with a hand-drawn rocket over a dark space background",
     imageSrc: "/projects/jank-launcher-card.png",
     githubUrl: "https://github.com/mattander/jank-launcher",
     liveUrl: "https://jank-launcher.pages.dev",
-    tags: ["Vite", "TypeScript", "PixiJS", "Vitest", "Cloudflare Pages"],
+    tags: ["TypeScript", "PixiJS", "Vitest", "Cloudflare Pages"],
   },
   {
+    path: "projects/just-quiz-me",
     name: "Just Quiz Me",
     description:
-      "A fast, absurd quiz site with a lightweight public homepage, multiple published quizzes, instant result pages, and a Cloudflare-backed runtime built for shareable nonsense.",
+      "A fast, absurd quiz site with instant result pages and a Cloudflare-backed runtime built for shareable nonsense.",
     imageAlt: "Just Quiz Me preview card with the site logo and tagline",
     imageSrc: "/projects/just-quiz-me-card.png",
     githubUrl: "https://github.com/mattander/just-quiz-me",
     liveUrl: "https://justquiz.me",
-    tags: [
-      "TanStack Start",
-      "React",
-      "TypeScript",
-      "Cloudflare Workers",
-      "D1",
-      "Tailwind CSS",
-      "Valibot",
-    ],
+    tags: ["TanStack Start", "React", "Cloudflare Workers", "D1"],
   },
 ];

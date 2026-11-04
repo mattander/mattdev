@@ -1,36 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>Matt Anderson monogram</title>
+  <title id="title">Matt Anderson: a pixel M with one block popped off</title>
   <style>
-    .surface {
-      fill: #f7f5ef;
+    .body {
+      fill: #4f46e5;
     }
 
-    .letter {
-      fill: #171717;
-    }
-
-    .accent {
-      stroke: #0f766e;
+    .block {
+      fill: #d97706;
     }
 
     @media (prefers-color-scheme: dark) {
-      .surface {
-        fill: #111315;
+      .body {
+        fill: #6366f1;
       }
 
-      .letter {
-        fill: #f3f1ea;
-      }
-
-      .accent {
-        stroke: #7cc9c7;
+      .block {
+        fill: #fbbf24;
       }
     }
   </style>
-  <rect class="surface" width="64" height="64" rx="14" />
-  <path
-    class="letter"
-    d="M15 45V19h7l10 15 10-15h7v26h-7V31l-7 10h-6L22 31v14h-7Z"
-  />
-  <path class="accent" d="M16 50h32" stroke-linecap="round" stroke-width="4" />
+  <g transform="translate(-2 2)">
+    <path class="body" d="M8 52V12h12v8h8v8h8v-8h8v8h12v24H44V32h-8v8h-8v-8h-8v20Z" />
+    <path class="block" d="M48 8h12v12H48Z" />
+  </g>
 </svg>
