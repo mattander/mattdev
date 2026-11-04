@@ -890,7 +890,8 @@ main {
   transform: rotate(45deg);
 }
 
-.check summary:hover {
+.check summary:hover,
+.check[open] {
   background: color-mix(in srgb, var(--bg) 60%, var(--surface));
 }
 
@@ -922,7 +923,7 @@ main {
 }
 
 .check .chip-list {
-  padding: 2px 16px 16px 46px;
+  padding: 0 16px 14px 46px;
 }
 
 /* Files changed */
